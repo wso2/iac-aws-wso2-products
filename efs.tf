@@ -27,7 +27,8 @@ module "efs" {
 
 module "efs_access_point" {
   source         = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/EFS-Access-Point"
-  file_system_id = module.efs.efs_id
+  count          = var.enable_efs_access_point ? 1 : 0
+  file_system_id = module.efs[0].efs_id
   posix_user_gid = var.efs_posix_user_gid
   posix_user_uid = var.efs_posix_user_uid
 

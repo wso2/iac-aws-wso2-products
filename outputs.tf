@@ -21,19 +21,13 @@ output "database_writer_endpoint" {
   depends_on  = [module.aurora_mysql_rds_cluster]
 }
 
-output "filestore_location" {
-  value       = length(module.fileshare) > 0 ? module.fileshare[0].location : null
-  depends_on  = [module.fileshare]
-  description = "Location of the filestore."
-}
-
 output "efs_id" {
   value       = length(module.efs) > 0 ? module.efs[0].efs_id : null
   depends_on  = [module.efs]
   description = "ID of the Elastic File Storage"
 }
 
-output "efs_efs_access_point" {
+output "efs_access_point" {
   value       = length(module.efs_access_point) > 0 ? module.efs_access_point[0].access_point_id : null
   depends_on  = [module.efs_access_point]
   description = "ID of the EFS Access Point"

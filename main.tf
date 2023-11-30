@@ -63,7 +63,7 @@ module "internet_gateway_subnet_routes" {
 }
 
 module "nat_gateway" {
-  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/nat_gateway"
+  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/NAT-Gateway"
   project     = var.project
   environment = var.environment_name
   region      = var.region

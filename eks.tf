@@ -10,7 +10,7 @@
 # --------------------------------------------------------------------------------------
 
 module "eks_cluster" {
-  source                    = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/eks_cluster"
+  source                    = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/EKS-Cluster"
   project                   = var.project
   environment               = var.environment_name
   region                    = var.region

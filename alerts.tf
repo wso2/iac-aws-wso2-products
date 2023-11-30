@@ -28,7 +28,7 @@ module "eks_cluster_node_cpu_utilization_warning_alert" {
   metric_namespace    = local.eks_container_insights_metrics_namespace
   metric_name         = local.node_cpu_utilization_metric_name
   alarm_description   = "This alarm monitors VM CPU utilization in the cluster and triggers a warning alert"
-  alarm_actions       = [module.alert-group.topic_arn]
+  alarm_actions       = [module.alert_group[0].topic_arn]
   comparison_operator = local.cloud_watch_gte_metrics_threshold_string
   threshold           = var.eks_cluster_node_cpu_utilization_warning_threshold
   metric_usage_prefix = join("-", [local.node_cpu_utilization_metric_name_usage, local.warning_alert_usage_suffix])
@@ -49,7 +49,7 @@ module "eks_cluster_node_memory_utilization_warning_alert" {
   metric_namespace    = local.eks_container_insights_metrics_namespace
   metric_name         = local.node_memory_utilization_metric_name
   alarm_description   = "This alarm monitors VM Memory utilization in the cluster and triggers a warning alert"
-  alarm_actions       = [module.alert-group.topic_arn]
+  alarm_actions       = [module.alert_group[0].topic_arn]
   comparison_operator = local.cloud_watch_gte_metrics_threshold_string
   threshold           = var.eks_cluster_node_memory_utilization_warning_threshold
   metric_usage_prefix = join("-", [local.node_memory_utilization_metric_name_usage, local.warning_alert_usage_suffix])
@@ -70,7 +70,7 @@ module "eks_cluster_container_cpu_utilization_warning_alert" {
   metric_namespace    = local.eks_container_insights_metrics_namespace
   metric_name         = local.container_cpu_utilization_metric_name
   alarm_description   = "This alarm monitors container CPU utilization in the cluster and triggers a warning alert"
-  alarm_actions       = [module.alert-group.topic_arn]
+  alarm_actions       = [module.alert_group[0].topic_arn]
   comparison_operator = local.cloud_watch_gte_metrics_threshold_string
   threshold           = var.eks_cluster_container_cpu_utilization_warning_threshold
   metric_usage_prefix = join("-", [local.container_cpu_utilization_metric_name_usage, local.warning_alert_usage_suffix])
@@ -91,7 +91,7 @@ module "eks_cluster_container_memory_utilization_warning_alert" {
   metric_namespace    = local.eks_container_insights_metrics_namespace
   metric_name         = local.container_memory_utilization_metric_name
   alarm_description   = "This alarm monitors container memory utilization in the cluster and triggers a warning alert"
-  alarm_actions       = [module.alert-group.topic_arn]
+  alarm_actions       = [module.alert_group[0].topic_arn]
   comparison_operator = local.cloud_watch_gte_metrics_threshold_string
   threshold           = var.eks_cluster_container_memory_utilization_warning_threshold
   metric_usage_prefix = join("-", [local.container_memory_utilization_metric_name_usage, local.warning_alert_usage_suffix])
@@ -112,7 +112,7 @@ module "eks_cluster_container_restarts_warning_alert" {
   metric_namespace    = local.eks_container_insights_metrics_namespace
   metric_name         = local.container_restarts_metric_name
   alarm_description   = "This alarm monitors container restarts in the cluster and triggers a warning alert"
-  alarm_actions       = [module.alert-group.topic_arn]
+  alarm_actions       = [module.alert_group[0].topic_arn]
   comparison_operator = local.cloud_watch_gte_metrics_threshold_string
   threshold           = var.eks_cluster_container_restart_warning_threshold
   metric_usage_prefix = join("-", [local.container_restarts_metric_name_usage, local.warning_alert_usage_suffix])
