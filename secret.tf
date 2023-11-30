@@ -11,6 +11,7 @@
 
 module "secret" {
   source                          = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Secret-Manager-Secret"
+  count                           = var.enable_secret ? 1 : 0
   secret_name                     = var.secret_name
   secret_string                   = var.secret_string
   recovery_window_in_days         = var.secret_recovery_window_in_days

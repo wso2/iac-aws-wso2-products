@@ -79,6 +79,12 @@ variable "eks_external_lb_az2_subnet_cidr" {
 }
 
 # Database
+variable "enable_database" {
+  default     = true
+  description = "Set true to enable the creation of a MySQL database."
+  type        = bool
+}
+
 variable "db_engine" {
   type        = string
   description = "Database engine to be used"
@@ -130,6 +136,12 @@ variable "db_password" {
 }
 
 # EFS
+variable "enable_efs_access_point" {
+  description = "Deploy a EFS access point for persistent storage"
+  type        = bool
+  default     = true
+}
+
 variable "efs_creation_token" {
   type        = string
   description = "Token used for setting up the EFS"
@@ -172,6 +184,12 @@ variable "efs_root_directory_path" {
 }
 
 # Secret
+variable "enable_secret" {
+  description = "Enable secrets to store passwords"
+  type        = bool
+  default     = true
+}
+
 variable "secret_string" {
   type        = string
   description = "String value for string"

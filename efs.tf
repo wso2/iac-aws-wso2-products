@@ -11,6 +11,7 @@
 
 module "efs" {
   source         = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/EFS"
+  count          = var.enable_efs_access_point ? 1 : 0
   project        = var.project
   environment    = var.environment_name
   region         = var.region

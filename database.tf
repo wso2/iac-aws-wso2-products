@@ -11,6 +11,7 @@
 
 module "aurora_mysql_rds_cluster" {
   source             = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/RDS-Aurora"
+  count              = var.enable_database ? 1 : 0
   project            = var.project
   environment        = var.environment_name
   region             = var.region

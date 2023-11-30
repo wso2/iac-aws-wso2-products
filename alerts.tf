@@ -11,6 +11,7 @@
 
 module "alert_group" {
   source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/SNS-Topic"
+  count       = var.eks_cluster_enable_monitoring_global_flag ? 1 : 0
   topic_name  = "alert-group"
   subscribers = var.alert_subscribers
   project     = var.project
@@ -38,7 +39,7 @@ module "eks_cluster_node_cpu_utilization_warning_alert" {
   project     = var.project
   environment = var.environment_name
   region      = var.region
-  application = "${var.client_name}"
+  application = var.client_name
 }
 
 module "eks_cluster_node_memory_utilization_warning_alert" {
@@ -59,7 +60,7 @@ module "eks_cluster_node_memory_utilization_warning_alert" {
   project     = var.project
   environment = var.environment_name
   region      = var.region
-  application = "${var.client_name}"
+  application = var.client_name
 }
 
 module "eks_cluster_container_cpu_utilization_warning_alert" {
@@ -80,7 +81,7 @@ module "eks_cluster_container_cpu_utilization_warning_alert" {
   project     = var.project
   environment = var.environment_name
   region      = var.region
-  application = "${var.client_name}"
+  application = var.client_name
 }
 
 module "eks_cluster_container_memory_utilization_warning_alert" {
@@ -101,7 +102,7 @@ module "eks_cluster_container_memory_utilization_warning_alert" {
   project     = var.project
   environment = var.environment_name
   region      = var.region
-  application = "${var.client_name}"
+  application = var.client_name
 }
 
 module "eks_cluster_container_restarts_warning_alert" {
@@ -122,5 +123,5 @@ module "eks_cluster_container_restarts_warning_alert" {
   project     = var.project
   environment = var.environment_name
   region      = var.region
-  application = "${var.client_name}"
+  application = var.client_name
 }
