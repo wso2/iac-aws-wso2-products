@@ -40,8 +40,8 @@ This repository stores generic terraform scripts for provisioning infrastructure
 | <a name="module_eks_cluster_node_memory_utilization_warning_alert"></a> [eks\_cluster\_node\_memory\_utilization\_warning\_alert](#module\_eks\_cluster\_node\_memory\_utilization\_warning\_alert) | git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Metric-Alarm | n/a |
 | <a name="module_endpoint_security_group"></a> [endpoint\_security\_group](#module\_endpoint\_security\_group) | git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Security-Group | n/a |
 | <a name="module_internet_gateway"></a> [internet\_gateway](#module\_internet\_gateway) | git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Gateway | n/a |
-| <a name="module_internet_gateway_subnet"></a> [internet\_gateway\_subnet](#module\_internet\_gateway\_subnet) | git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet | n/a |
-| <a name="module_internet_gateway_subnet_routes"></a> [internet\_gateway\_subnet\_routes](#module\_internet\_gateway\_subnet\_routes) | git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet-Routes | n/a |
+| <a name="module_nat_gateway_subnet"></a> [internet\_gateway\_subnet](#module\_internet\_gateway\_subnet) | git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet | n/a |
+| <a name="module_nat_gateway_subnet_routes"></a> [internet\_gateway\_subnet\_routes](#module\_internet\_gateway\_subnet\_routes) | git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet-Routes | n/a |
 | <a name="module_management_az_subnet"></a> [management\_az\_subnet](#module\_management\_az\_subnet) | git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet | n/a |
 | <a name="module_nat_gateway"></a> [nat\_gateway](#module\_nat\_gateway) | git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/nat_gateway | n/a |
 | <a name="module_secret"></a> [secret](#module\_secret) | git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Secret-Manager-Secret | n/a |
@@ -61,7 +61,7 @@ This repository stores generic terraform scripts for provisioning infrastructure
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_alert_subscribers"></a> [alert\_subscribers](#input\_alert\_subscribers) | List of emails to be notified when a warning alert is triggered | `any` | n/a | yes |
-| <a name="input_az1_dmz_subnet_cidr_block"></a> [az1\_dmz\_subnet\_cidr\_block](#input\_az1\_dmz\_subnet\_cidr\_block) | CIDR range for subnet that holds Firewalls and Public Load Balancers in AZ | `string` | n/a | yes |
+| <a name="input_az_dmz_subnet_cidr_block"></a> [az1\_dmz\_subnet\_cidr\_block](#input\_az1\_dmz\_subnet\_cidr\_block) | CIDR range for subnet that holds Firewalls and Public Load Balancers in AZ | `string` | n/a | yes |
 | <a name="input_bastion_access_security_group_rules"></a> [bastion\_access\_security\_group\_rules](#input\_bastion\_access\_security\_group\_rules) | List of rules to allow/deny access to the Bastion | `any` | n/a | yes |
 | <a name="input_bastion_ami"></a> [bastion\_ami](#input\_bastion\_ami) | AMI to be used for Bastion | `string` | n/a | yes |
 | <a name="input_bastion_instance_type"></a> [bastion\_instance\_type](#input\_bastion\_instance\_type) | Instance type to be used for Bastion | `string` | n/a | yes |
@@ -78,7 +78,7 @@ This repository stores generic terraform scripts for provisioning infrastructure
 | <a name="input_db_password"></a> [db\_password](#input\_db\_password) | Password for the Database | `string` | n/a | yes |
 | <a name="input_db_primary_db_name"></a> [db\_primary\_db\_name](#input\_db\_primary\_db\_name) | Primary Database name to be used in MySQL DB | `string` | n/a | yes |
 | <a name="input_default_tags"></a> [default\_tags](#input\_default\_tags) | Default tags to be applied to all resources | `map(string)` | n/a | yes |
-| <a name="input_ec2_subnet_vpc_cidr_block"></a> [ec2\_subnet\_vpc\_cidr\_block](#input\_ec2\_subnet\_vpc\_cidr\_block) | CIDR of the subnet which should contain the VM | `string` | `null` | no |
+| <a name="input_bastion_cidr_block"></a> [ec2\_subnet\_vpc\_cidr\_block](#input\_ec2\_subnet\_vpc\_cidr\_block) | CIDR of the subnet which should contain the VM | `string` | `null` | no |
 | <a name="input_efs_creation_token"></a> [efs\_creation\_token](#input\_efs\_creation\_token) | Token used for setting up the EFS | `string` | n/a | yes |
 | <a name="input_efs_owner_gid"></a> [efs\_owner\_gid](#input\_efs\_owner\_gid) | The group ID for the root directory owner. | `number` | `802` | no |
 | <a name="input_efs_owner_uid"></a> [efs\_owner\_uid](#input\_efs\_owner\_uid) | The user ID for the root directory owner. | `number` | `802` | no |

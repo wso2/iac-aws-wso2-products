@@ -63,7 +63,7 @@ variable "kubernetes_version" {
   description = "Kubernetes version to be used in EKS clusters"
 }
 
-variable "az1_dmz_subnet_cidr_block" {
+variable "az_dmz_subnet_cidr_block" {
   type        = string
   description = "CIDR range for subnet that holds Firewalls and Public Load Balancers in AZ"
 }
@@ -285,7 +285,7 @@ variable "bastion_ip_address" {
   description = "IP address of the Bastion"
 }
 
-variable "ec2_subnet_vpc_cidr_block" {
+variable "bastion_cidr_block" {
   type        = string
   description = "CIDR of the subnet which should contain the VM"
   default     = null

@@ -17,7 +17,6 @@ module "eks_cluster" {
   application               = var.client_name
   tags                      = var.default_tags
   eks_vpc_id                = module.vpc.vpc_id
-  public_access_cidrs       = ["0.0.0.0/0"]
   kubernetes_version        = var.kubernetes_version
   service_ipv4_cidr         = var.eks_service_ipv4_cidr
   enabled_cluster_log_types = ["audit", "controllerManager", "scheduler"]
@@ -73,7 +72,7 @@ module "eks_cluster_bastion_access_sg_rule" {
       "from_port" : 6443
       "to_port" : 6443
       "protocol" : "TCP"
-      "cidr_blocks" : [var.ec2_subnet_vpc_cidr_block]
+      "cidr_blocks" : [var.bastion_cidr_block]
       "security_groups" : []
     },
     {
@@ -81,7 +80,7 @@ module "eks_cluster_bastion_access_sg_rule" {
       "from_port" : 443
       "to_port" : 443
       "protocol" : "TCP"
-      "cidr_blocks" : [var.ec2_subnet_vpc_cidr_block]
+      "cidr_blocks" : [var.bastion_cidr_block]
       "security_groups" : []
     }
   ]

@@ -27,7 +27,7 @@ module "bastion" {
   private_ip                   = var.bastion_ip_address
   add_ssh_key                  = false
   security_group_ids           = [module.bastion_security_group.security_group_id]
-  ec2_subnet_vpc_cidr_block    = var.ec2_subnet_vpc_cidr_block
+  ec2_subnet_vpc_cidr_block    = var.bastion_cidr_block
   custom_routes = [
     {
       "cidr_block" = "0.0.0.0/0"

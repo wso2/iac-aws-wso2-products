@@ -30,10 +30,10 @@ bastion_access_security_group_rules = [
     "security_groups" : []
   }
 ]
-bastion_ami               = "ami-05af0694d2e8e6df3"
-bastion_instance_type     = "t2.micro"
-bastion_ip_address        = "172.17.10.10"
-ec2_subnet_vpc_cidr_block = "172.17.10.0/24"
+bastion_ami           = "ami-05af0694d2e8e6df3"
+bastion_instance_type = "t2.micro"
+bastion_ip_address    = "172.17.10.10"
+bastion_cidr_block    = "172.17.10.0/24"
 
 management_subnet_az_cidr = "172.17.15.0/26"
 
@@ -47,7 +47,7 @@ eks_availability_zone_2_subnet_cidr_block = "172.17.17.0/24"
 eks_external_lb_az1_subnet_cidr           = "172.17.19.0/24"
 eks_external_lb_az2_subnet_cidr           = "172.17.20.0/24"
 eks_service_ipv4_cidr                     = "10.0.0.0/16"
-az1_dmz_subnet_cidr_block                 = "172.17.12.0/26"
+az_dmz_subnet_cidr_block                  = "172.17.12.0/26"
 kubernetes_version                        = "1.28"
 
 efs_creation_token      = "token-2"
@@ -66,7 +66,23 @@ db_access_security_group_rules = [
     "from_port" : 0
     "to_port" : 3306
     "protocol" : "TCP"
-    "cidr_blocks" : ["0.0.0.0/0"]
+    "cidr_blocks" : ["172.17.10.0/24"]
+    "security_groups" : []
+  },
+  {
+    "direction" : "ingress"
+    "from_port" : 0
+    "to_port" : 3306
+    "protocol" : "TCP"
+    "cidr_blocks" : ["172.17.16.0/24"]
+    "security_groups" : []
+  },
+  {
+    "direction" : "ingress"
+    "from_port" : 0
+    "to_port" : 3306
+    "protocol" : "TCP"
+    "cidr_blocks" : ["172.17.17.0/24"]
     "security_groups" : []
   }
 ]

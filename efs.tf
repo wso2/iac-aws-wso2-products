@@ -32,7 +32,7 @@ module "efs_access_point" {
   posix_user_gid = var.efs_posix_user_gid
   posix_user_uid = var.efs_posix_user_uid
 
-  root_directory_path = "/carbondb"
+  root_directory_path = var.efs_root_directory_path
 
   owner_gid   = var.efs_owner_gid
   owner_uid   = var.efs_owner_uid
