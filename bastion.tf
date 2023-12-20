@@ -49,7 +49,7 @@ module "bastion_security_group" {
   environment = var.environment_name
   region      = var.region
   application = "${var.client_name}-bastion"
-  description = "Allow Traffic to Bastion"
+  description = "Allow Traffic from Bastion"
   vpc_id      = module.vpc.vpc_id
   rules       = var.bastion_access_security_group_rules
   tags        = var.default_tags

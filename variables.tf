@@ -290,3 +290,8 @@ variable "bastion_cidr_block" {
   description = "CIDR of the subnet which should contain the VM"
   default     = null
 }
+
+
+
+# Add IAM Roles for EFS, Load Balancers, Secrets
+# Add DB and LB access logs to cloud watch

@@ -21,6 +21,10 @@ module "efs" {
     "eks_az1_subnet" : {
       subnet_id : module.eks_cluster.eks_subnet_ids[0]
       security_groups : [module.eks_cluster_efs_access_group.security_group_id]
+    },
+    "eks_az2_subnet" : {
+      subnet_id : module.eks_cluster.eks_subnet_ids[1]
+      security_groups : [module.eks_cluster_efs_access_group.security_group_id]
     }
   }
 }
@@ -31,12 +35,12 @@ module "efs_access_point" {
   file_system_id = module.efs[0].efs_id
   posix_user_gid = var.efs_posix_user_gid
   posix_user_uid = var.efs_posix_user_uid
+  permissions    = var.efs_permissions
 
   root_directory_path = var.efs_root_directory_path
 
   owner_gid   = var.efs_owner_gid
   owner_uid   = var.efs_owner_uid
-  permissions = var.efs_permissions
   tags        = var.default_tags
 }
 
