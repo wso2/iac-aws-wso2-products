@@ -1,6 +1,6 @@
 # -------------------------------------------------------------------------------------
 #
-# Copyright (c) 2023, WSO2 LLC. (http://www.wso2.com). All Rights Reserved.
+# Copyright (c) 2024, WSO2 LLC. (http://www.wso2.com). All Rights Reserved.
 #
 # This software is the property of WSO2 LLC. and its suppliers, if any.
 # Dissemination of any information or reproduction of any material contained
@@ -39,9 +39,9 @@ module "efs_access_point" {
 
   root_directory_path = var.efs_root_directory_path
 
-  owner_gid   = var.efs_owner_gid
-  owner_uid   = var.efs_owner_uid
-  tags        = var.default_tags
+  owner_gid = var.efs_owner_gid
+  owner_uid = var.efs_owner_uid
+  tags      = var.default_tags
 }
 
 module "eks_cluster_efs_access_group" {

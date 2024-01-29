@@ -1,6 +1,6 @@
 # -------------------------------------------------------------------------------------
 #
-# Copyright (c) 2023, WSO2 LLC. (http://www.wso2.com). All Rights Reserved.
+# Copyright (c) 2024, WSO2 LLC. (http://www.wso2.com). All Rights Reserved.
 #
 # This software is the property of WSO2 LLC. and its suppliers, if any.
 # Dissemination of any information or reproduction of any material contained
@@ -290,8 +290,3 @@ variable "bastion_cidr_block" {
   description = "CIDR of the subnet which should contain the VM"
   default     = null
 }
-
-
-
-# Add IAM Roles for EFS, Load Balancers, Secrets
-# Add DB and LB access logs to cloud watch
