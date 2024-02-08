@@ -10,7 +10,7 @@
 # --------------------------------------------------------------------------------------
 
 module "aurora_mysql_rds_cluster" { #TODO test serverless as well. Add other DBs
-  source             = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/RDS-Aurora"
+  source             = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/RDS-Aurora?ref=v1.12.0"
   count              = var.enable_database ? 1 : 0
   project            = var.project
   environment        = var.environment_name
@@ -36,7 +36,7 @@ module "aurora_mysql_rds_cluster" { #TODO test serverless as well. Add other DBs
 }
 
 module "db_subnet_group" {
-  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/RDS-Subnet-Group"
+  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/RDS-Subnet-Group?ref=v1.12.0"
   project     = var.project
   environment = var.environment_name
   region      = var.region
@@ -45,7 +45,7 @@ module "db_subnet_group" {
 }
 
 module "db_security_group" {
-  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Security-Group"
+  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Security-Group?ref=v1.12.0"
   project     = var.project
   environment = var.environment_name
   region      = var.region
@@ -60,7 +60,7 @@ module "db_security_group" {
 }
 
 module "db_az1_subnet" {
-  source            = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet"
+  source            = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet?ref=v1.12.0"
   project           = var.project
   environment       = var.environment_name
   region            = var.region
@@ -73,7 +73,7 @@ module "db_az1_subnet" {
 }
 
 module "db_az2_subnet" {
-  source            = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet"
+  source            = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet?ref=v1.12.0"
   project           = var.project
   environment       = var.environment_name
   region            = var.region

@@ -10,7 +10,7 @@
 # --------------------------------------------------------------------------------------
 
 module "vpc" {
-  source               = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC"
+  source               = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC?ref=v1.12.0"
   project              = var.project
   environment          = var.environment_name
   region               = var.region
@@ -21,7 +21,7 @@ module "vpc" {
 }
 
 module "internet_gateway" {
-  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Gateway"
+  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Gateway?ref=v1.12.0"
   project     = var.project
   environment = var.environment_name
   region      = var.region
@@ -35,7 +35,7 @@ module "internet_gateway" {
 }
 
 module "nat_gateway_subnet" {
-  source            = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet"
+  source            = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet?ref=v1.12.0"
   project           = var.project
   environment       = var.environment_name
   region            = var.region
@@ -48,7 +48,7 @@ module "nat_gateway_subnet" {
 }
 
 module "nat_gateway_subnet_routes" {
-  source         = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet-Routes"
+  source         = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet-Routes?ref=v1.12.0"
   route_table_id = module.nat_gateway_subnet.route_table_id
   routes = [
     {
@@ -63,7 +63,7 @@ module "nat_gateway_subnet_routes" {
 }
 
 module "nat_gateway" {
-  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/NAT-Gateway"
+  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/NAT-Gateway?ref=v1.12.0"
   project     = var.project
   environment = var.environment_name
   region      = var.region
@@ -77,7 +77,7 @@ module "nat_gateway" {
 }
 
 module "management_az_subnet" {
-  source            = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet"
+  source            = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/VPC-Subnet?ref=v1.12.0"
   project           = var.project
   environment       = var.environment_name
   region            = var.region
@@ -96,7 +96,7 @@ module "management_az_subnet" {
 }
 
 module "ec2_messages_vpc_endpoint" {
-  source                       = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Interface-VPC-Endpoint"
+  source                       = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Interface-VPC-Endpoint?ref=v1.12.0"
   vpc_id                       = module.vpc.vpc_id
   service_name                 = "com.amazonaws.${var.region}.ec2messages"
   project                      = var.project
@@ -111,7 +111,7 @@ module "ec2_messages_vpc_endpoint" {
 }
 
 module "ssm_messages_vpc_endpoint" {
-  source                       = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Interface-VPC-Endpoint"
+  source                       = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Interface-VPC-Endpoint?ref=v1.12.0"
   vpc_id                       = module.vpc.vpc_id
   service_name                 = "com.amazonaws.${var.region}.ssmmessages"
   project                      = var.project
@@ -126,7 +126,7 @@ module "ssm_messages_vpc_endpoint" {
 }
 
 module "ssm_vpc_endpoint" {
-  source                       = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Interface-VPC-Endpoint"
+  source                       = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Interface-VPC-Endpoint?ref=v1.12.0"
   project                      = var.project
   environment                  = var.environment_name
   region                       = var.region
@@ -141,7 +141,7 @@ module "ssm_vpc_endpoint" {
 }
 
 module "endpoint_security_group" {
-  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Security-Group"
+  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Security-Group?ref=v1.12.0"
   project     = var.project
   environment = var.environment_name
   region      = var.region

@@ -10,7 +10,7 @@
 # --------------------------------------------------------------------------------------
 
 module "efs" {
-  source         = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/EFS"
+  source         = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/EFS?ref=v1.12.0"
   count          = var.enable_efs_access_point ? 1 : 0
   project        = var.project
   environment    = var.environment_name
@@ -30,7 +30,7 @@ module "efs" {
 }
 
 module "efs_access_point" {
-  source         = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/EFS-Access-Point"
+  source         = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/EFS-Access-Point?ref=v1.12.0"
   count          = var.enable_efs_access_point ? 1 : 0
   file_system_id = module.efs[0].efs_id
   posix_user_gid = var.efs_posix_user_gid
@@ -45,7 +45,7 @@ module "efs_access_point" {
 }
 
 module "eks_cluster_efs_access_group" {
-  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Security-Group"
+  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Security-Group?ref=v1.12.0"
   project     = var.project
   environment = var.environment_name
   region      = var.region

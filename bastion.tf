@@ -10,7 +10,7 @@
 # --------------------------------------------------------------------------------------
 
 module "bastion" {
-  source                       = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/EC2-Instance"
+  source                       = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/EC2-Instance?ref=v1.12.0"
   project                      = var.project
   environment                  = var.environment_name
   region                       = var.region
@@ -44,7 +44,7 @@ module "bastion" {
 }
 
 module "bastion_security_group" {
-  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Security-Group"
+  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Security-Group?ref=v1.12.0"
   project     = var.project
   environment = var.environment_name
   region      = var.region

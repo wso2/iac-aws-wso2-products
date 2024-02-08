@@ -10,7 +10,7 @@
 # --------------------------------------------------------------------------------------
 
 module "alert_group" {
-  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/SNS-Topic"
+  source      = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/SNS-Topic?ref=v1.12.0"
   count       = var.eks_cluster_enable_monitoring_global_flag ? 1 : 0
   topic_name  = "alert-group"
   subscribers = var.alert_subscribers
@@ -22,7 +22,7 @@ module "alert_group" {
 }
 
 module "eks_cluster_node_cpu_utilization_warning_alert" {
-  source              = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Metric-Alarm"
+  source              = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Metric-Alarm?ref=v1.12.0"
   enabled             = var.eks_cluster_enable_monitoring_global_flag
   tags                = var.default_tags
   metric_namespace    = local.eks_container_insights_metrics_namespace
@@ -43,7 +43,7 @@ module "eks_cluster_node_cpu_utilization_warning_alert" {
 }
 
 module "eks_cluster_node_memory_utilization_warning_alert" {
-  source              = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Metric-Alarm"
+  source              = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Metric-Alarm?ref=v1.12.0"
   enabled             = var.eks_cluster_enable_monitoring_global_flag
   tags                = var.default_tags
   metric_namespace    = local.eks_container_insights_metrics_namespace
@@ -64,7 +64,7 @@ module "eks_cluster_node_memory_utilization_warning_alert" {
 }
 
 module "eks_cluster_container_cpu_utilization_warning_alert" {
-  source              = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Metric-Alarm"
+  source              = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Metric-Alarm?ref=v1.12.0"
   enabled             = var.eks_cluster_enable_monitoring_global_flag
   tags                = var.default_tags
   metric_namespace    = local.eks_container_insights_metrics_namespace
@@ -85,7 +85,7 @@ module "eks_cluster_container_cpu_utilization_warning_alert" {
 }
 
 module "eks_cluster_container_memory_utilization_warning_alert" {
-  source              = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Metric-Alarm"
+  source              = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Metric-Alarm?ref=v1.12.0"
   enabled             = var.eks_cluster_enable_monitoring_global_flag
   tags                = var.default_tags
   metric_namespace    = local.eks_container_insights_metrics_namespace
@@ -106,7 +106,7 @@ module "eks_cluster_container_memory_utilization_warning_alert" {
 }
 
 module "eks_cluster_container_restarts_warning_alert" {
-  source              = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Metric-Alarm"
+  source              = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Metric-Alarm?ref=v1.12.0"
   enabled             = var.eks_cluster_enable_monitoring_global_flag
   tags                = var.default_tags
   metric_namespace    = local.eks_container_insights_metrics_namespace

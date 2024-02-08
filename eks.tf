@@ -10,7 +10,7 @@
 # --------------------------------------------------------------------------------------
 
 module "eks_cluster" {
-  source                    = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/EKS-Cluster"
+  source                    = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/EKS-Cluster?ref=v1.12.0"
   project                   = var.project
   environment               = var.environment_name
   region                    = var.region
@@ -47,7 +47,7 @@ module "eks_cluster" {
 }
 
 module "eks_cluster_node_group" {
-  source           = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/EKS-Node-Group"
+  source           = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/EKS-Node-Group?ref=v1.12.0"
   eks_cluster_name = module.eks_cluster.eks_cluster_name
   node_group_name  = "np"
   subnet_ids       = module.eks_cluster.eks_subnet_ids
@@ -64,7 +64,7 @@ module "eks_cluster_node_group" {
 }
 
 module "eks_cluster_bastion_access_sg_rule" {
-  source            = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Security-Group-Rule"
+  source            = "git::https://github.com/wso2/aws-terraform-modules.git//modules/aws/Security-Group-Rule?ref=v1.12.0"
   security_group_id = module.eks_cluster.eks_security_group_rule_id
   rules = [
     {
