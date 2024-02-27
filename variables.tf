@@ -135,6 +135,11 @@ variable "db_password" {
   sensitive   = true
 }
 
+variable "db_backup_retention_period" {
+  type        = number
+  description = "Backup retention period for the Database"
+}
+
 # EFS
 variable "enable_efs_access_point" {
   description = "Deploy a EFS access point for persistent storage"

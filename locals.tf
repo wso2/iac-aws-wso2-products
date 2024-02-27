@@ -12,25 +12,19 @@
 locals {
   eks_container_insights_metrics_namespace = "ContainerInsights"
   elasticache_metrics_namespace            = "AWS/ElastiCache"
-
   node_cpu_utilization_metric_name         = "node_cpu_utilization"
   node_memory_utilization_metric_name      = "node_memory_utilization"
   container_cpu_utilization_metric_name    = "container_cpu_utilization"
   container_memory_utilization_metric_name = "container_memory_utilization"
   container_restarts_metric_name           = "pod_number_of_container_restarts"
-
   warning_alert_usage_suffix  = "warning"
   critical_alert_usage_suffix = "critical"
-
   node_cpu_utilization_metric_name_usage         = "node-cpu-usage"
   node_memory_utilization_metric_name_usage      = "node-memory-usage"
   container_cpu_utilization_metric_name_usage    = "container-cpu-usage"
   container_memory_utilization_metric_name_usage = "container-memory-usage"
   container_restarts_metric_name_usage           = "container_number_of_restarts"
-
-
   cloud_watch_average_statistic_string = "Average"
   cloud_watch_sum_statistic_string     = "Sum"
-
   cloud_watch_gte_metrics_threshold_string = "GreaterThanOrEqualToThreshold"
 }

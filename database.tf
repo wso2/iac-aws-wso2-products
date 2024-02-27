@@ -30,9 +30,8 @@ module "aurora_mysql_rds_cluster" { #TODO test serverless as well. Add other DBs
   engine_version          = var.db_engine_version
   engine_mode             = var.db_engine_mode
   db_subnet_group_name    = module.db_subnet_group.subnet_group_name
-  backup_retention_period = 7 # TODO parameterize 
+  backup_retention_period = var.db_backup_retention_period
   vpc_security_group_ids  = [module.db_security_group.security_group_id]
-  # TODO Check database encryptions
 }
 
 module "db_subnet_group" {

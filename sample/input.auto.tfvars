@@ -86,9 +86,10 @@ db_access_security_group_rules = [
     "security_groups" : []
   }
 ]
-db_az1_subnet_cidr_block = "172.17.12.128/26"
-db_az2_subnet_cidr_block = "172.17.12.192/26"
-db_password              = "wso2carbon"
+db_az1_subnet_cidr_block   = "172.17.12.128/26"
+db_az2_subnet_cidr_block   = "172.17.12.192/26"
+db_password                = "wso2carbon"
+db_backup_retention_period = 7
 
 #secret
 secret_name                    = "wso2-secret"
